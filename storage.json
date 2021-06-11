@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageCount": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "containerCount": {
+            "type": "int",
+            "defaultValue": 1
+        }
+
+    },
+    "functions": [],
+    "variables": {
+           "storageName": "[concat('storage', uniqueString(resourceGroup().id))]",
+        "copy": [
+            {
+                "name": "containerNames",
+                "input": "[concat(variables('storageName'), '/default/container', copyIndex('containerNames', 1))]",
+                "count": "[parameters('containerCount')]"
+            }
+        ]
+   
+    },
+    "resources": [
+               {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex('copystorage', 1))]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "copy": {
+                "name": "copystorage",
+                "count": "[parameters('storageCount')]"
+            }
+        },
+         {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('containerNames')[copyIndex('copycontainers')]]",
+            "copy": {
+                "name": "copycontainers",
+                "count": "[length(variables('containerNames'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
+            ]
+        }
+    ],
+    "outputs": {
+        "storageEndpoints": {
+            "type": "array",
+            "copy": {
+                "count": "[parameters('storageCount')]",
+                "input": "[reference(concat('storage', uniqueString(resourceGroup().id), copyIndex(1))).primaryEndpoints.blob]"
+            }
+        }
+        
+    }
+}
