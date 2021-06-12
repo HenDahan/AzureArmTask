@@ -1,4 +1,5 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
+
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
@@ -18,9 +19,13 @@ steps:
   displayName: 'Run a multi-line script'
 
 # Starter pipeline
-- task: AzurePowerShell@5
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    ScriptType: 'FilePath'
-    ScriptPath: 'https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/run.ps1?token=AKZ2QUOQX4QPFYYPL7LR7YLAYSCIO'
-    errorActionPreference: 'continue'
-    azurePowerShellVersion: 'LatestVersion'
+    deploymentScope: 'Resource Group'
+    subscriptionId: 'a8108c2b-496c-424d-8347-ecc8afb6384c'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'hendahanGroup'
+    location: 'West Europe'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/storage.json?token=AKZ2QUMIONSBPGO5QF5MBUTAYSDRK'
+    deploymentMode: 'Incremental'
