@@ -72,7 +72,7 @@
         },
         "virtualMachineName": {
             "type": "string",
-            "defaultValue": "hen-vm"
+            "defaultValue": "henVM1"
         },
         "virtualMachineComputerName": {
             "type": "string",
