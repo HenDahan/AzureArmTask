@@ -72,7 +72,7 @@
         },
         "virtualMachineName": {
             "type": "string",
-            "defaultValue": "henVM1"
+            "defaultValue": "henVM"
         },
         "virtualMachineComputerName": {
             "type": "string",
@@ -105,6 +105,7 @@
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
     },
     "resources": [
+
         {
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
