@@ -1,24 +1,83 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "adminUsername": {
-      "value": "henvm"
-    },
-    "dnsLabelPrefix": {
-      "value": "henvm-dns"
-    },
-    "tomcatUserName": {
-      "value": "henvm-tomcat"
-    },
-    "tomcatPassword": {
-      "value": "!Aa123456"
-    },
-    "sshPassPhrase": {
-      "value": "henvm-ssh1"
-    },
-    "adminPasswordOrKey": {
-      "value": "!Aa123456"
-    }
+      "location": {
+          "value": "westeurope"
+      },
+      "networkInterfaceName": {
+          "value": "hen-vm602"
+      },
+      "networkSecurityGroupName": {
+          "value": "hen-vm-nsg"
+      },
+      "networkSecurityGroupRules": {
+          "value": [
+              {
+                  "name": "SSH",
+                  "properties": {
+                      "priority": 300,
+                      "protocol": "TCP",
+                      "access": "Allow",
+                      "direction": "Inbound",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "22"
+                  }
+              }
+          ]
+      },
+      "subnetName": {
+          "value": "default"
+      },
+      "virtualNetworkName": {
+          "value": "hen-arm-task-vnet"
+      },
+      "addressPrefixes": {
+          "value": [
+              "10.8.0.0/16"
+          ]
+      },
+      "subnets": {
+          "value": [
+              {
+                  "name": "default",
+                  "properties": {
+                      "addressPrefix": "10.8.0.0/24"
+                  }
+              }
+          ]
+      },
+      "publicIpAddressName": {
+          "value": "hen-vm-ip"
+      },
+      "publicIpAddressType": {
+          "value": "Static"
+      },
+      "publicIpAddressSku": {
+          "value": "Standard"
+      },
+      "virtualMachineName": {
+          "value": "hen-vm"
+      },
+      "virtualMachineComputerName": {
+          "value": "hen-vm"
+      },
+      "virtualMachineRG": {
+          "value": "hen-arm-task"
+      },
+      "osDiskType": {
+          "value": "Premium_LRS"
+      },
+      "virtualMachineSize": {
+          "value": "Standard_D2s_v3"
+      },
+      "adminUsername": {
+          "value": "azureuser"
+      },
+      "zone": {
+          "value": "1"
+      }
   }
 }
