@@ -1,30 +1,60 @@
 # start run from here 
 
-# Connect to Azure
-#Connect-AzAccount -TenantId 72f988bf-86f1-41af-91ab-2d7cd011db47
+#vm.json uri
+# https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/vm.json
 
-#create 100 files to directory:
-#New-Item -Path blobsFolder -ItemType Directory
-#for ($num = 1 ; $num -le 100 ; $num++){
-#	New-Item -Path "blobsFolder\$num.jpg" -ItemType File
-#}
-$resourceGroupName = "arm-Home-Work"
+#vm.parameters.json uri
+# https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/vm.parameters.json
+
+#storage.json uri
+# https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/storage.json
+
+#storage2.json uri
+# https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/storage2.json
+
+Connect-AzAccount -TenantId 72f988bf-86f1-41af-91ab-2d7cd011db47
+
+ 
+# Define Variables
+$subscriptionId = "a8108c2b-496c-424d-8347-ecc8afb6384c"
+
+$storageAccount1Name = "csb100320014c2ec761"
+$storageAccount2Name = "csb100320014c2ec762"
+
+
+ 
+
+$resourceGroupName = "hen-arm-task"
 $location = "West Europe" 
 
-New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+
+
 New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile vm.json `
-	-TemplateParameterFile vm.parameters.json
+	-ResourceGroupName $resourceGroupName `
+	-TemplateUri https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/storage.json
+
+# Get Storage Account Key
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -AccountName $storageAccount1Name).Value[0]
+
+# Set AzStorageContext
+$ctx = New-AzStorageContext -StorageAccountName $storageAccount1Name -StorageAccountKey $storageAccountKey
+
+#creiate new container
+$containerName = "contain1"
+New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 
- (Get-AzVm -ResourceGroupName $resourceGroupName).name
+New-AzResourceGroupDeployment `
+	-ResourceGroupName $resourceGroupName `
+	-TemplateUri https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/storage2.json
 
- New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile storage.json 
+# Get Storage Account Key
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -AccountName $storageAccount2Name).Value[0]
 
+# Set AzStorageContext
+$ctx2 = New-AzStorageContext -StorageAccountName $storageAccount2Name -StorageAccountKey $storageAccountKey
 
- # remove 100 file from directory: 
- #Remove-Item blobsFolder
- 
+#creiate new container
+$containerName = "contain1"
+New-AzStorageContainer -Name $containerName -Context $ctx2 -Permission blob
+

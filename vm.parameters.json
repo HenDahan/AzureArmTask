@@ -3,22 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "henvm"
     },
     "dnsLabelPrefix": {
-      "value": "GEN-UNIQUE"
+      "value": "henvm-dns"
     },
     "tomcatUserName": {
-      "value": "GEN-UNIQUE"
+      "value": "henvm-tomcat"
     },
     "tomcatPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "!Aa123456"
     },
     "sshPassPhrase": {
-      "value": "GEN-UNIQUE"
+      "value": "henvm-ssh1"
     },
     "adminPasswordOrKey": {
-      "value": "GEN-SSH-PUB-KEY"
+      "value": "!Aa123456"
     }
   }
 }
