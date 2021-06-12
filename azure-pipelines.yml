@@ -1,4 +1,10 @@
 # Starter pipeline
+- task: AzurePowerShell@5
+  inputs:
+    ScriptType: 'FilePath'
+    ScriptPath: 'https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/run.ps1?token=AKZ2QUOQX4QPFYYPL7LR7YLAYSCIO'
+    errorActionPreference: 'continue'
+    azurePowerShellVersion: 'LatestVersion'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
