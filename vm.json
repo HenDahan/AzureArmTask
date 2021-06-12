@@ -21,7 +21,7 @@
     },
     "sshPassPhrase": {
       "type": "string",
-      "defaultValue": "q4fZq185VKt7LgdNSP5W7b"
+      "defaultValue": "q4fZq185VKt7LgdNSP5W7A"
     },
     "location": {
       "type": "string",
