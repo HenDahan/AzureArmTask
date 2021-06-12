@@ -3,58 +3,100 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "westeurope"
         },
         "networkInterfaceName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-vm602"
         },
         "networkSecurityGroupName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-vm-nsg"
         },
         "networkSecurityGroupRules": {
-            "type": "array"
+            "type": "array",
+            "defaultValue": [
+                {
+                  "name": "SSH",
+                  "properties": {
+                      "priority": 300,
+                      "protocol": "TCP",
+                      "access": "Allow",
+                      "direction": "Inbound",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "22"
+                  }
+                }
+              ]
+            
         },
         "subnetName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "henvm-subnet"
         },
         "virtualNetworkName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-arm-task-vnet"
         },
         "addressPrefixes": {
-            "type": "array"
+            "type": "array",
+            "defaultValue": [
+              "10.8.0.0/16"
+            ]
         },
         "subnets": {
-            "type": "array"
+            "type": "array",
+            "defaultValue": [
+              {
+                "name": "henvm-subdefault",
+                "properties": {
+                  "assressPrefix": "10.8.0.0/24"
+                }
+              }
+            ]
         },
         "publicIpAddressName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-vm-ip"
         },
         "publicIpAddressType": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Static"
         },
         "publicIpAddressSku": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Standard"
         },
         "virtualMachineName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-vm"
         },
         "virtualMachineComputerName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-vm"
         },
         "virtualMachineRG": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "hen-arm-task"
         },
         "osDiskType": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Premium_LRS"
         },
         "virtualMachineSize": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Standard_D2s_v3"
         },
         "adminUsername": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "henadmin"
         },
         "zone": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "1"
         }
     },
     "variables": {
