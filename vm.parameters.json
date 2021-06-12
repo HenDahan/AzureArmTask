@@ -6,10 +6,10 @@
           "value": "westeurope"
       },
       "networkInterfaceName": {
-          "value": "hen-vm602"
+          "value": "henvm191"
       },
       "networkSecurityGroupName": {
-          "value": "hen-vm-nsg"
+          "value": "henVM-nsg"
       },
       "networkSecurityGroupRules": {
           "value": [
@@ -50,7 +50,7 @@
           ]
       },
       "publicIpAddressName": {
-          "value": "hen-vm-ip"
+          "value": "henVM-ip"
       },
       "publicIpAddressType": {
           "value": "Static"
@@ -59,10 +59,10 @@
           "value": "Standard"
       },
       "virtualMachineName": {
-          "value": "hen-vm"
+          "value": "henVM"
       },
       "virtualMachineComputerName": {
-          "value": "hen-vm"
+          "value": "henVM"
       },
       "virtualMachineRG": {
           "value": "hen-arm-task"
