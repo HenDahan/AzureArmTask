@@ -4,34 +4,24 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
-      "metadata": {
-        "description": "Linux VM user account name"
-      }
+      "defaultValue": "henvm"
     },
     "dnsLabelPrefix": {
       "type": "string",
-      "metadata": {
-        "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
-      }
+      "defaultValue": "henvm-dns"
+
     },
     "tomcatUserName": {
       "type": "string",
-      "defaultValue": "tcdeploy",
-      "metadata": {
-        "description": "User name for Tomcat manager"
-      }
+      "defaultValue": "henvm-tomcat"
     },
     "tomcatPassword": {
       "type": "string",
-      "metadata": {
-        "description": "Password for Tomcat manager"
-      }
+      "defaultValue": "!Aa123456"
     },
     "sshPassPhrase": {
       "type": "string",
-      "metadata": {
-        "description": "Pass phrase for SSH certificate"
-      }
+      "defaultValue": "q4fZq185VKt7LgdNSP5W7b"
     },
     "location": {
       "type": "string",
@@ -67,9 +57,7 @@
     },
     "adminPasswordOrKey": {
       "type": "securestring",
-      "metadata": {
-        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
-      }
+      "defaultValue": "!Aa123456"
     },
     "vmSize": {
       "type": "string",
