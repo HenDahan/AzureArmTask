@@ -2,82 +2,35 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "adminUsername": {
+          "value": "henadmin"
+      },
+      "adminPassword": {
+          "value": "!Aa123456789"
+      },
+      "dnsLabelPrefix": {
+          "value": "hen-vm-nlfmzdrban4m6"
+      },
+      "publicIpName": {
+          "value": "myPublicIP"
+      },
+      "publicIPAllocationMethod": {
+          "value": "Dynamic"
+      },
+      "publicIpSku": {
+          "value": "Basic"
+      },
+      "osVersion": {
+          "value": "2019-Datacenter"
+      },
+      "vmSize": {
+          "value": "Standard_D2_v3"
+      },
       "location": {
           "value": "westeurope"
       },
-      "networkInterfaceName": {
-          "value": "henvm191"
-      },
-      "networkSecurityGroupName": {
-          "value": "henVM-nsg"
-      },
-      "networkSecurityGroupRules": {
-          "value": [
-              {
-                  "name": "SSH",
-                  "properties": {
-                      "priority": 300,
-                      "protocol": "TCP",
-                      "access": "Allow",
-                      "direction": "Inbound",
-                      "sourceAddressPrefix": "*",
-                      "sourcePortRange": "*",
-                      "destinationAddressPrefix": "*",
-                      "destinationPortRange": "22"
-                  }
-              }
-          ]
-      },
-      "subnetName": {
-          "value": "default"
-      },
-      "virtualNetworkName": {
-          "value": "hen-arm-task-vnet"
-      },
-      "addressPrefixes": {
-          "value": [
-              "10.8.0.0/16"
-          ]
-      },
-      "subnets": {
-          "value": [
-              {
-                  "name": "default",
-                  "properties": {
-                      "addressPrefix": "10.8.0.0/24"
-                  }
-              }
-          ]
-      },
-      "publicIpAddressName": {
-          "value": "henVM-ip"
-      },
-      "publicIpAddressType": {
-          "value": "Static"
-      },
-      "publicIpAddressSku": {
-          "value": "Standard"
-      },
-      "virtualMachineName": {
-          "value": "henVM"
-      },
-      "virtualMachineComputerName": {
-          "value": "henVM"
-      },
-      "virtualMachineRG": {
-          "value": "hen-arm-task"
-      },
-      "osDiskType": {
-          "value": "Premium_LRS"
-      },
-      "virtualMachineSize": {
-          "value": "Standard_D2s_v3"
-      },
-      "adminUsername": {
-          "value": "azureuser"
-      },
-      "zone": {
-          "value": "1"
+      "vmName": {
+          "value": "hen-vm"
       }
   }
 }
