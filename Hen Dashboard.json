@@ -1,0 +1,297 @@
+{
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": {
+          "0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "colSpan": 8,
+              "rowSpan": 1
+            },
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/MarkdownPart",
+              "settings": {
+                "content": {
+                  "settings": {
+                    "content": "\r\n<h1>\r\n__hen-arm-task__\r\n\r\n__Dashboard__\r\n</h1>\r\n",
+                    "title": "",
+                    "subtitle": "",
+                    "markdownSource": 1,
+                    "markdownUri": null
+                  }
+                }
+              }
+            }
+          },
+          "1": {
+            "position": {
+              "x": 8,
+              "y": 0,
+              "colSpan": 2,
+              "rowSpan": 1
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "id",
+                  "value": "/subscriptions/a8108c2b-496c-424d-8347-ecc8afb6384c/resourceGroups/hen-arm-task/providers/Microsoft.Compute/virtualMachines/simple-vm",
+                  "isOptional": true
+                },
+                {
+                  "name": "resourceId",
+                  "isOptional": true
+                },
+                {
+                  "name": "menuid",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ResourcePart",
+              "asset": {
+                "idInputName": "id"
+              }
+            }
+          },
+          "2": {
+            "position": {
+              "x": 10,
+              "y": 0,
+              "colSpan": 2,
+              "rowSpan": 1
+            },
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/ClockPart",
+              "settings": {}
+            }
+          },
+          "3": {
+            "position": {
+              "x": 0,
+              "y": 1,
+              "colSpan": 6,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "resourceGroup",
+                  "isOptional": true
+                },
+                {
+                  "name": "id",
+                  "value": "/subscriptions/a8108c2b-496c-424d-8347-ecc8afb6384c/resourceGroups/hen-arm-task",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart",
+              "savedContainerState": {
+                "partTitle": "Resources",
+                "assetName": "hen-arm-task"
+              }
+            }
+          },
+          "4": {
+            "position": {
+              "x": 6,
+              "y": 1,
+              "colSpan": 6,
+              "rowSpan": 3
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "options",
+                  "isOptional": true
+                },
+                {
+                  "name": "sharedTimeRange",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/a8108c2b-496c-424d-8347-ecc8afb6384c/resourceGroups/hen-arm-task/providers/Microsoft.Storage/storageAccounts/csb100320014c2ec761"
+                          },
+                          "name": "BlobCount",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.storage/storageaccounts/blobservices",
+                          "metricVisualization": {
+                            "displayName": "Blob Count"
+                          }
+                        }
+                      ],
+                      "title": "Avg Blob Count for csb100320014c2ec761",
+                      "titleKind": 1,
+                      "visualization": {
+                        "chartType": 2,
+                        "legendVisualization": {
+                          "isVisible": true,
+                          "position": 2,
+                          "hideSubtitle": false
+                        },
+                        "axisVisualization": {
+                          "x": {
+                            "isVisible": true,
+                            "axisType": 2
+                          },
+                          "y": {
+                            "isVisible": true,
+                            "axisType": 1
+                          }
+                        },
+                        "disablePinning": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "5": {
+            "position": {
+              "x": 6,
+              "y": 4,
+              "colSpan": 6,
+              "rowSpan": 3
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "options",
+                  "isOptional": true
+                },
+                {
+                  "name": "sharedTimeRange",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/a8108c2b-496c-424d-8347-ecc8afb6384c/resourceGroups/hen-arm-task/providers/Microsoft.Storage/storageAccounts/csb100320014c2ec762"
+                          },
+                          "name": "BlobCount",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.storage/storageaccounts/blobservices",
+                          "metricVisualization": {
+                            "displayName": "Blob Count"
+                          }
+                        }
+                      ],
+                      "title": "Avg Blob Count for csb100320014c2ec762",
+                      "titleKind": 1,
+                      "visualization": {
+                        "chartType": 2,
+                        "legendVisualization": {
+                          "isVisible": true,
+                          "position": 2,
+                          "hideSubtitle": false
+                        },
+                        "axisVisualization": {
+                          "x": {
+                            "isVisible": true,
+                            "axisType": 2
+                          },
+                          "y": {
+                            "isVisible": true,
+                            "axisType": 1
+                          }
+                        },
+                        "disablePinning": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "6": {
+            "position": {
+              "x": 0,
+              "y": 5,
+              "colSpan": 6,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/MarkdownPart",
+              "settings": {
+                "content": {
+                  "settings": {
+                    "content": "__My data__\n\nThis tile lets you put custom content on your dashboard. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://ms.portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                    "title": "Readme",
+                    "subtitle": "",
+                    "markdownSource": 1,
+                    "markdownUri": null
+                  }
+                }
+              },
+              "savedContainerState": {
+                "partTitle": "Readme",
+                "assetName": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        },
+        "filterLocale": {
+          "value": "en-us"
+        },
+        "filters": {
+          "value": {
+            "MsPortalFx_TimeRange": {
+              "model": {
+                "format": "utc",
+                "granularity": "auto",
+                "relative": "24h"
+              },
+              "displayCache": {
+                "name": "UTC Time",
+                "value": "Past 24 hours"
+              },
+              "filteredPartIds": [
+                "StartboardPart-MonitorChartPart-e481390f-9b6c-4f2e-8251-a1e0e8c6e16f",
+                "StartboardPart-MonitorChartPart-e481390f-9b6c-4f2e-8251-a1e0e8c6e4a9"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "Hen Dashboard",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "INSERT LOCATION",
+  "tags": {
+    "hidden-title": "Hen Dashboard"
+  },
+  "apiVersion": "2015-08-01-preview"
+}
