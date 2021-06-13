@@ -14,8 +14,8 @@
 
 
 ###
-	after the deployment is complit 
-    RDP file will launch.
+	after the deployment is complited
+    RDP file will be launched.
     in the Windows Security window, select More choices and then Use a different account. 
     type the username as localhost\henadmin
     type the password !Aa123456789
