@@ -1,1 +1,0 @@
-#This file will copy the blobs from one storage account to another

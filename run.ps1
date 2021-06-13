@@ -32,7 +32,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment `
 	-ResourceGroupName $resourceGroupName `
 	-TemplateUri https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/vm.json
-    -TemplateParameterUri https://raw.githubusercontent.com/HenDahan/AzureArmTask/main/vm.parameters.json
+  
 
     
 ################################################################### deploy storage accounts and create containers
@@ -62,43 +62,7 @@ $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupN
 $ctx2 = New-AzStorageContext -StorageAccountName $storageAccount2Name -StorageAccountKey $storageAccountKey
 
 #creiate new container
-$containerName = "contain1"
 New-AzStorageContainer -Name $containerName -Context $ctx2 -Permission blob
 
-################################################################### create and upload 100 files to storage account 1 
-
-#create 100 files to directory:
-New-Item -Path blobsFolder -ItemType Directory
-for ($num = 1 ; $num -le 100 ; $num++){
-	New-Item -Path "blobsFolder\$num.jpg" -ItemType File
-}
-
-#upload 100 files to the storage account
-for ($num = 1 ; $num -le 100 ; $num++){
-	Set-AzStorageBlobContent -File "blobsFolder\$num.jpg" `
-	  -Container $containerName `
-	  -Blob "$num.jpg" `
-	  -Context $ctx1 
- } 
-
-
-
-################################################################### copy 100 files from storage account 1 to storage account 2 
-
-#$stacc1 = Get-AzStorageAccount -StorageAccountName $storageAccount1Name -ResourceGroupName $resourceGroupName
-#$stacc2 = Get-AzStorageAccount -StorageAccountName $storageAccount2Name -ResourceGroupName $resourceGroupName
-
-#$staccSAS1 = New-AzureStorageAccountSASToken -Service Blob,File,Table,Queue -ResourceType Service,Container,Object -Premissin "racwdlup" -Context $ctx1
-#$staccSAS2 = New-AzureStorageAccountSASToken -Service Blob,File,Table,Queue -ResourceType Service,Container,Object -Premissin "racwdlup" -Context $ctx2
-
-
-#.\azcopy.exe copy "$($ctx1.BlobEndPoint))$containerName/$staccSAS1" "$($ctx2.BlobEndPoint))$containerName/$staccSAS2" --recursive
-
-
-$sourceContainerSASURI = New-AzStorageContainerSASToken -Context $ctx1 -ExpiryTime(get-date).AddSeconds(3600) -FullUri -Name $containerName -Permission rw
-$destinationContainerSASURI = New-AzStorageContainerSASToken -Context $ctx2 -ExpiryTime(get-date).AddSeconds(3600) -FullUri -Name $containerName -Permission rw
-
-azcopy cp $sourceContainerSASURI $destinationContainerSASURI 
-
- # remove 100 file from directory: 
- Remove-Item blobsFolder
+#run RDP file
+Get-AzRemoteDesktopFile -ResourceGroupName $resourceGroupName -Name "simple-vm" -Launch
