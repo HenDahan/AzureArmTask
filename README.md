@@ -18,7 +18,6 @@
     RDP file will be launched.
     in the Windows Security window, select More choices and then Use a different account. 
     type the username as localhost\henadmin
-    type the password !Aa123456789
 
     now the vm will open 
     copy the file copyScript.ps1 into the vm
